@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+  body {
+    font-size: 8em;
+    color: #FF8EBD;
+    font-family: 'Comic Sans MS';
+    text-transform: capitalize;
+  }
+  </style>
+</head>
+<body>
+<div id="example"></div>
+<script>
+  const debut = ['chou','flou','bou','glou','gnou','gno','pou']
+  const fin = ['ki','ps','li', 'bi','rbi','rf','rfi','quette','linou','rps','cchi','psi','flette']
+
+  const getSyllabe = arr => arr[Math.floor(Math.random()*arr.length)]
+
+  const makeBoulinou = () => {
+    const debut1 = getSyllabe(debut)
+    const fin1 = getSyllabe(fin)
+    const debut2 = getSyllabe(debut)
+    const fin2 = getSyllabe(fin)
+
+    const boulinous = []
+
+    for (let i = 0; i < 1; i++) {
+      const numSyllabes = Math.random() * 2
+      const syllabes = []
+
+      for (let i = 0; i < numSyllabes; i++) {
+        syllabes.push(getSyllabe(debut))
+        syllabes.push(getSyllabe(fin))
+      }
+      const boulinou = syllabes.join('')
+      boulinous.push(boulinou)
+    }
+
+    document.body.innerHTML = boulinous.join('<br>')
+  }
+
+  makeBoulinou()
+  setInterval(makeBoulinou, 1000)
+
+</script>
+</body>
+</html>
